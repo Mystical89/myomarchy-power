@@ -1,4 +1,4 @@
-**English** | [Русский](#русский)
+**English** | [Русский](#russian)
 
 # Power: horizontal battery for the Omarchy bar
 
@@ -29,14 +29,6 @@ omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 The plugin keeps the id `mystical.power`, so a bar entry that already points at
 the old clone keeps working. If you still have the stock `omarchy.power` entry
 in the bar, replace its `id` with `mystical.power`.
-
-**The id is fixed: it installs as `mystical.power` on every machine**, whatever
-the local username is. `omarchy plugin add` takes the id from `manifest.json` and
-never re-prefixes it. The `mystical.` prefix exists because `omarchy plugin clone`
-names a copy `<username>.<plugin>` once, at clone time — that is where the
-author's name got in. If you want a namespace that follows *your* username, clone
-the built-in `omarchy.power` locally and copy this repository's `Panel.qml` into
-the clone.
 
 The widget is added once; set it in the bar settings panel or in
 `~/.config/omarchy/shell.json`:
@@ -79,6 +71,8 @@ David Heinemeier Hansson.
 
 ---
 
+<a id="russian"></a>
+
 ## Русский
 
 [↑ English](#power-horizontal-battery-for-the-omarchy-bar)
@@ -109,14 +103,6 @@ omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 Плагин сохраняет ID `mystical.power`, поэтому запись в баре, которая уже
 указывает на старый клон, продолжает работать. Если в баре всё ещё стоит
 штатная запись `omarchy.power`, замените её `id` на `mystical.power`.
-
-**ID фиксированный: на любой машине плагин установится как `mystical.power`**,
-как бы ни звали локального пользователя. `omarchy plugin add` берёт id из
-`manifest.json` и никогда его не префиксует. Префикс `mystical.` появился потому,
-что `omarchy plugin clone` один раз, в момент клонирования, называет копию
-`<имя_пользователя>.<плагин>` — тогда и попал ник автора. Если нужен префикс,
-следующий за *вашим* именем, клонируйте штатный `omarchy.power` локально и
-скопируйте в клон `Panel.qml` из этого репозитория.
 
 Виджет добавляется один раз; настройка — в панели настроек бара или в
 `~/.config/omarchy/shell.json`:
