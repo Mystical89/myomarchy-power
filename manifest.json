@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "mystical.power",
+  "name": "Power (horizontal battery)",
+  "version": "1.0.0",
+  "author": "Mystical89 (based on Omarchy's omarchy.power)",
+  "description": "Battery in the bar: horizontal icon with the remaining charge to its right",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Power (horizontal battery)",
+    "description": "Battery, power profile and system stats; horizontal battery icon with the charge to the right",
+    "category": "System",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.power"
+  }
+}
