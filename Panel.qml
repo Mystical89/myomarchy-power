@@ -177,7 +177,7 @@ Panel {
   }
 
   IpcHandler {
-    target: "omarchy.power"
+    target: "mystical.power"
 
     function open() { root.open() }
     function close() { root.close() }
