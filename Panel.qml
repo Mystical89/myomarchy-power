@@ -10,8 +10,8 @@ Panel {
   id: root
   // The plugin has its own id: settings writes (togglePercentage) and the
   // IPC handler must target it, not the stock omarchy.power widget.
-  moduleName: "myomarchy.power"
-  ipcTarget: "myomarchy.power"
+  moduleName: "mystical.power"
+  ipcTarget: "mystical.power"
   // manageIpc: false so this panel can own the single IpcHandler the target
   // permits — needed for the togglePercentage method below.
   manageIpc: false
@@ -177,7 +177,7 @@ Panel {
   }
 
   IpcHandler {
-    target: "myomarchy.power"
+    target: "mystical.power"
 
     function open() { root.open() }
     function close() { root.close() }

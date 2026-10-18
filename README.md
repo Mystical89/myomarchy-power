@@ -26,20 +26,23 @@ of the icon**.
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
 
-The plugin keeps the id `myomarchy.power`, so a bar entry that already points at
+The plugin keeps the id `mystical.power`, so a bar entry that already points at
 the old clone keeps working. If you still have the stock `omarchy.power` entry
-in the bar, replace its `id` with `myomarchy.power`.
+in the bar, replace its `id` with `mystical.power`.
 
-**The id does not depend on your username.** It is a fixed string in
-`manifest.json`, so the plugin installs as `myomarchy.power` on any machine. A
-`<username>.<plugin>` id only appears when *you* clone a built-in widget with
-`omarchy plugin clone`, which prefixes the copy with `$USER` at that moment.
+**The id is fixed: it installs as `mystical.power` on every machine**, whatever
+the local username is. `omarchy plugin add` takes the id from `manifest.json` and
+never re-prefixes it. The `mystical.` prefix exists because `omarchy plugin clone`
+names a copy `<username>.<plugin>` once, at clone time — that is where the
+author's name got in. If you want a namespace that follows *your* username, clone
+the built-in `omarchy.power` locally and copy this repository's `Panel.qml` into
+the clone.
 
 The widget is added once; set it in the bar settings panel or in
 `~/.config/omarchy/shell.json`:
 
 ```json
-{ "id": "myomarchy.power", "showPercentage": true }
+{ "id": "mystical.power", "showPercentage": true }
 ```
 
 ## Settings
@@ -54,7 +57,7 @@ low-charge threshold handling — is Omarchy's own code, unchanged.
 ## Uninstall
 
 ```bash
-omarchy plugin remove myomarchy.power
+omarchy plugin remove mystical.power
 ```
 
 Because the manifest records `clonedFrom: omarchy.power`, removing this plugin
@@ -66,7 +69,7 @@ lets Omarchy re-enable its stock widget. The bar entry stays in `shell.json`.
 |---|---|
 | `Panel.qml` | `BarIconButton` → `WidgetButton` with a `Row`: the rotated `OpticalGlyph` plus a `Text` for the charge. The stock code builds one string (`"88% 󰁹"`) for the glyph, which cannot work once the icon is rotated — the text would rotate too. |
 | `Panel.qml` | The glyph gets `rotation: 90` inside a `Style.bar.iconCanvas` box at `Style.bar.iconFont`; the charge is drawn at `Style.font.body`; spacing and padding come from `Style.space()`. |
-| `Panel.qml` | `moduleName` / `ipcTarget` are `myomarchy.power` instead of `omarchy.power`: right-click writes `showPercentage` into this plugin's own bar entry, and the IPC handler no longer collides with the stock widget's. |
+| `Panel.qml` | `moduleName` / `ipcTarget` are `mystical.power` instead of `omarchy.power`: right-click writes `showPercentage` into this plugin's own bar entry, and the IPC handler no longer collides with the stock widget's. |
 | `Model.js` | Icon sets untouched (ten levels); only the mode labels are Russian. |
 
 ## License
@@ -103,21 +106,23 @@ David Heinemeier Hansson.
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
 
-Плагин сохраняет ID `myomarchy.power`, поэтому запись в баре, которая уже
+Плагин сохраняет ID `mystical.power`, поэтому запись в баре, которая уже
 указывает на старый клон, продолжает работать. Если в баре всё ещё стоит
-штатная запись `omarchy.power`, замените её `id` на `myomarchy.power`.
+штатная запись `omarchy.power`, замените её `id` на `mystical.power`.
 
-**ID не зависит от имени пользователя.** Это фиксированная строка в
-`manifest.json`, поэтому на любой машине плагин установится как
-`myomarchy.power`. ID вида `<имя>.<плагин>` появляется только когда вы сами
-клонируете встроенный виджет через `omarchy plugin clone` — эта команда
-добавляет префикс `$USER` в момент клонирования.
+**ID фиксированный: на любой машине плагин установится как `mystical.power`**,
+как бы ни звали локального пользователя. `omarchy plugin add` берёт id из
+`manifest.json` и никогда его не префиксует. Префикс `mystical.` появился потому,
+что `omarchy plugin clone` один раз, в момент клонирования, называет копию
+`<имя_пользователя>.<плагин>` — тогда и попал ник автора. Если нужен префикс,
+следующий за *вашим* именем, клонируйте штатный `omarchy.power` локально и
+скопируйте в клон `Panel.qml` из этого репозитория.
 
 Виджет добавляется один раз; настройка — в панели настроек бара или в
 `~/.config/omarchy/shell.json`:
 
 ```json
-{ "id": "myomarchy.power", "showPercentage": true }
+{ "id": "mystical.power", "showPercentage": true }
 ```
 
 ### Настройки
@@ -132,7 +137,7 @@ omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ### Удаление
 
 ```bash
-omarchy plugin remove myomarchy.power
+omarchy plugin remove mystical.power
 ```
 
 Так как в манифесте указано `clonedFrom: omarchy.power`, после удаления Omarchy
@@ -144,7 +149,7 @@ omarchy plugin remove myomarchy.power
 |---|---|
 | `Panel.qml` | `BarIconButton` → `WidgetButton` с `Row`: повёрнутый `OpticalGlyph` плюс `Text` для заряда. Штатный код собирает одну строку (`"88% 󰁹"`) для глифа, что невозможно, когда иконка повёрнута — текст повернулся бы вместе с ней. |
 | `Panel.qml` | Глиф получает `rotation: 90` в канве `Style.bar.iconCanvas` размером `Style.bar.iconFont`; заряд рисуется кеглем `Style.font.body`; отступы — из `Style.space()`. |
-| `Panel.qml` | `moduleName` / `ipcTarget` — `myomarchy.power`, а не `omarchy.power`: правый клик пишет `showPercentage` в запись именно этого плагина, а IPC-обработчик больше не конфликтует со штатным виджетом. |
+| `Panel.qml` | `moduleName` / `ipcTarget` — `mystical.power`, а не `omarchy.power`: правый клик пишет `showPercentage` в запись именно этого плагина, а IPC-обработчик больше не конфликтует со штатным виджетом. |
 | `Model.js` | Наборы иконок не тронуты (десять уровней); по-русски только подписи режима. |
 
 ### Лицензия
