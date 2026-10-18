@@ -61,6 +61,7 @@ lets Omarchy re-enable its stock widget. The bar entry stays in `shell.json`.
 |---|---|
 | `Panel.qml` | `BarIconButton` → `WidgetButton` with a `Row`: the rotated `OpticalGlyph` plus a `Text` for the charge. The stock code builds one string (`"88% 󰁹"`) for the glyph, which cannot work once the icon is rotated — the text would rotate too. |
 | `Panel.qml` | The glyph gets `rotation: 90` inside a `Style.bar.iconCanvas` box at `Style.bar.iconFont`; the charge is drawn at `Style.font.body`; spacing and padding come from `Style.space()`. |
+| `Panel.qml` | `moduleName` / `ipcTarget` are `mystical.power` instead of `omarchy.power`: right-click writes `showPercentage` into this plugin's own bar entry, and the IPC handler no longer collides with the stock widget's. |
 | `Model.js` | Icon sets untouched (ten levels); only the mode labels are Russian. |
 
 ## License
@@ -132,6 +133,7 @@ omarchy plugin remove mystical.power
 |---|---|
 | `Panel.qml` | `BarIconButton` → `WidgetButton` с `Row`: повёрнутый `OpticalGlyph` плюс `Text` для заряда. Штатный код собирает одну строку (`"88% 󰁹"`) для глифа, что невозможно, когда иконка повёрнута — текст повернулся бы вместе с ней. |
 | `Panel.qml` | Глиф получает `rotation: 90` в канве `Style.bar.iconCanvas` размером `Style.bar.iconFont`; заряд рисуется кеглем `Style.font.body`; отступы — из `Style.space()`. |
+| `Panel.qml` | `moduleName` / `ipcTarget` — `mystical.power`, а не `omarchy.power`: правый клик пишет `showPercentage` в запись именно этого плагина, а IPC-обработчик больше не конфликтует со штатным виджетом. |
 | `Model.js` | Наборы иконок не тронуты (десять уровней); по-русски только подписи режима. |
 
 ### Лицензия

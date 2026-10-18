@@ -8,8 +8,10 @@ import "Model.js" as Model
 
 Panel {
   id: root
-  moduleName: "omarchy.power"
-  ipcTarget: "omarchy.power"
+  // The plugin has its own id: settings writes (togglePercentage) and the
+  // IPC handler must target it, not the stock omarchy.power widget.
+  moduleName: "mystical.power"
+  ipcTarget: "mystical.power"
   // manageIpc: false so this panel can own the single IpcHandler the target
   // permits — needed for the togglePercentage method below.
   manageIpc: false
