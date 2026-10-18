@@ -33,10 +33,6 @@ of the icon**.
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
 
-The plugin keeps the id `mystical.power`, so a bar entry that already points at
-the old clone keeps working. If you still have the stock `omarchy.power` entry
-in the bar, replace its `id` with `mystical.power`.
-
 The widget is added once; set it in the bar settings panel or in
 `~/.config/omarchy/shell.json`:
 
@@ -113,10 +109,6 @@ David Heinemeier Hansson.
 ```bash
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
-
-Плагин сохраняет ID `mystical.power`, поэтому запись в баре, которая уже
-указывает на старый клон, продолжает работать. Если в баре всё ещё стоит
-штатная запись `omarchy.power`, замените её `id` на `mystical.power`.
 
 Виджет добавляется один раз; настройка — в панели настроек бара или в
 `~/.config/omarchy/shell.json`:
