@@ -84,6 +84,9 @@ Panel {
     return Model.batteryFraction(d)
   }
 
+  // Under 10% the battery icon turns red.
+  readonly property bool lowCharge: batteryPresent && batteryFraction < 0.1
+
   readonly property bool charging: {
     var d = UPower.displayDevice
     return d && d.isPresent && !UPower.onBattery && !root.batteryFlowIdle
@@ -297,19 +300,34 @@ Panel {
     Row {
       id: row
       anchors.centerIn: parent
-      spacing: root.showPercentage && !button.vertical ? Style.space(3) : 0
+      spacing: Style.space(3)
+
+      // Bolt on the left while charging: it used to be part of the charging
+      // glyphs, which drew it under the battery.
+      OpticalGlyph {
+        anchors.verticalCenter: parent.verticalCenter
+        visible: root.charging && !button.vertical
+        width: Style.bar.iconCanvas
+        height: Style.bar.iconCanvas
+        text: "\uf0e7"
+        fontFamily: root.bar ? root.bar.fontFamily : Style.font.family
+        fontSize: Style.bar.iconFont * 0.9
+        color: root.bar ? root.bar.foreground : Color.foreground
+      }
 
       OpticalGlyph {
         anchors.verticalCenter: parent.verticalCenter
-        width: Style.bar.iconCanvas
-        height: Style.bar.iconCanvas
+        width: Style.bar.iconCanvas * 1.5
+        height: Style.bar.iconCanvas * 1.5
         // Vertical md-battery glyphs turned a quarter turn: horizontal, with
         // the terminal on the right and the charge filling from the left.
         rotation: 90
         text: root.batteryIcon()
         fontFamily: root.bar ? root.bar.fontFamily : Style.font.family
-        fontSize: Style.bar.iconFont
-        color: root.bar ? root.bar.foreground : Color.foreground
+        fontSize: Style.bar.iconFont * 1.5
+        // Below 10% the icon turns the theme's urgent colour.
+        color: root.lowCharge ? (root.bar ? root.bar.urgent : Color.urgent)
+                              : (root.bar ? root.bar.foreground : Color.foreground)
       }
 
       Text {
