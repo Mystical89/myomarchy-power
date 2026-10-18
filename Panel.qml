@@ -300,18 +300,20 @@ Panel {
     Row {
       id: row
       anchors.centerIn: parent
-      spacing: Style.space(3)
+      // Bolt, battery and charge are meant to read as one block: no gap
+      // between the three, the glyph padding does the rest.
+      spacing: 0
 
       // Bolt on the left while charging: it used to be part of the charging
       // glyphs, which drew it under the battery.
       OpticalGlyph {
         anchors.verticalCenter: parent.verticalCenter
         visible: root.charging && !button.vertical
-        width: Style.bar.iconCanvas
-        height: Style.bar.iconCanvas
+        width: Style.bar.iconCanvas * 0.75
+        height: Style.bar.iconCanvas * 0.75
         text: "\uf0e7"
         fontFamily: root.bar ? root.bar.fontFamily : Style.font.family
-        fontSize: Style.bar.iconFont * 0.9
+        fontSize: Style.bar.iconFont * 0.75
         color: root.bar ? root.bar.foreground : Color.foreground
       }
 
