@@ -309,7 +309,7 @@ Panel {
       OpticalGlyph {
         anchors.verticalCenter: parent.verticalCenter
         visible: root.charging && !button.vertical
-        width: Style.bar.iconCanvas * 0.75
+        width: Style.bar.iconCanvas * 0.5
         height: Style.bar.iconCanvas * 0.75
         text: "\uf0e7"
         fontFamily: root.bar ? root.bar.fontFamily : Style.font.family
@@ -319,7 +319,9 @@ Panel {
 
       OpticalGlyph {
         anchors.verticalCenter: parent.verticalCenter
-        width: Style.bar.iconCanvas * 1.5
+        // The box hugs the painted glyph: OpticalGlyph centres the ink in it,
+        // so a wider box would push the bolt and the charge away.
+        width: Style.bar.iconCanvas * 1.15
         height: Style.bar.iconCanvas * 1.5
         // Vertical md-battery glyphs turned a quarter turn: horizontal, with
         // the terminal on the right and the charge filling from the left.
