@@ -337,6 +337,9 @@ Panel {
       Text {
         visible: root.showPercentage && !button.vertical
         anchors.verticalCenter: parent.verticalCenter
+        // A small pad only on the charge side: the bolt stays tucked against
+        // the battery, while the charge gets a little breathing room.
+        leftPadding: Style.space(2)
         text: Math.round(root.batteryFraction * 100) + "%"
         color: root.bar ? root.bar.foreground : Color.foreground
         font.family: root.bar ? root.bar.fontFamily : Style.font.family

@@ -33,12 +33,7 @@ of the icon**.
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
 
-The widget is added once; set it in the bar settings panel or in
-`~/.config/omarchy/shell.json`:
-
-```json
-{ "id": "mystical.power", "showPercentage": true }
-```
+The widget is added once; enable the percentage in the bar settings panel.
 
 ## Settings
 
@@ -110,12 +105,7 @@ David Heinemeier Hansson.
 omarchy plugin add https://github.com/Mystical89/myomarchy-power.git --enable
 ```
 
-Виджет добавляется один раз; настройка — в панели настроек бара или в
-`~/.config/omarchy/shell.json`:
-
-```json
-{ "id": "mystical.power", "showPercentage": true }
-```
+Виджет добавляется один раз; включите проценты в панели настроек бара.
 
 ### Настройки
 
