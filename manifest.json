@@ -4,6 +4,7 @@
   "name": "Power (horizontal battery)",
   "version": "1.0.0",
   "author": "Mystical89 (based on Omarchy's omarchy.power)",
+  "license": "MIT",
   "description": "Battery in the bar: horizontal icon with the remaining charge to its right",
   "kinds": [
     "bar-widget"
